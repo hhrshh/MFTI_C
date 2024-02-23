@@ -8,6 +8,5 @@ www.codewars.com*/
 int mwain(void){
 
     return 0;
-
-/*new comment 2*/
 }
+
