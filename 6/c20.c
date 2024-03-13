@@ -13,7 +13,7 @@
 int correctp(char *a)
 {
 int count = 0;
-    for (size_t i = 0; i < (sizeof(a) / sizeof(a[0])); ++i)
+    for (size_t i = 0; a[i] != '\0'; ++i)
     {
         if (a[i] == '(') count++;
         if (a[i] == ')') count--;
@@ -22,7 +22,7 @@ return count == 0 ? 1 : 0;
 }
 int main(void)
 {
-char a[10];
+char a[1001];
     scanf("%s", a);
 
     correctp(a) ? puts("YES") : puts("NO");
