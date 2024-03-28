@@ -29,7 +29,7 @@ void arrInput(int* arr, int n)
         scanf("%d", &arr[i]);
 }
 
-void bubbleSortUD(int* arr, int n, int upDown)
+void dfg(int* arr, int n, int upDown)
 {
     for (size_t j = 0; j < n; ++j)
     {
@@ -50,8 +50,8 @@ int main(void)
 int arr[SIZE];
 
     arrInput(arr, SIZE);
-    bubbleSortUD(arr, SIZE / 2, 1);
-    bubbleSortUD(arr+5, SIZE / 2, 0);
+    dfg(arr, SIZE / 2, 1);
+    dfg(arr+5, SIZE / 2, 0);
     arrShow(arr, SIZE);
     return 0;
 }
