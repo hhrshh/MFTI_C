@@ -22,7 +22,7 @@ void arrShow(int* arr, int n)
 printf("\n");
 }
 
-void arrInput(int* arr, int n)
+void arrInput1(int* arr, int n)
 { 
     for(size_t i = 0; i < n; ++i) 
         scanf("%d", &arr[i]);
@@ -40,7 +40,7 @@ int main(void)
 {
 int arr[SIZE];
 
-    arrInput(arr, SIZE);
+    arrInput1(arr, SIZE);
     printf("%d\n", min(arr, SIZE));
     return 0;
 }

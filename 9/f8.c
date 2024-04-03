@@ -18,7 +18,7 @@
 
 void arrInput(int*, int*);
 int finderMissingNumber(int*, int);
-int min(int, int);
+int maxOrEqual(int, int);
 int max(int, int);
 void swap(int*, int*);
 void arrShow(int*, int);
@@ -51,18 +51,14 @@ int i = 0;
     }
 }
 
-int min(int a, int b)
+int maxOrEqual(int a, int b)
 {
-int resault;
-    resault = a < b ? a : b;
-    return resault;
+    return a < b ? a : b;
 }
 
 int max(int a, int b)
 {
-int resault;
-    resault = a > b ? a : b;
-    return resault;
+    return a > b ? a : b;    
 }
 
 void swap(int* a, int* b)

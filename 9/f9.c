@@ -1,73 +1,60 @@
-// Пропущенное число
-// Написать функцию и программу, демонстрирующую работу данной функции.
-// В последовательности записаны целые числа от M до N ( M меньше N, M больше или равно 1) в произвольном порядке, но одно из чисел пропущено (остальные встречаются ровно по одному разу). N не превосходит 1000. Последовательность заканчивается числом 0. Определить пропущенное число. 
+// F9
+// Поменять местами
+// Написать функцию и программу, демонстрирующую работу данной функции, которая в массиве находит максимальный из отрицательных элементов и меняет его местами с последним элементом массива. Гарантируется, что в массиве только один такой элемент или же такой элемент отсутствует. Если отрицательных элементов нет - массив не менять.
 
-// Данные на входе: 		Последовательность целых чисел от M до N. M, N не превосходит 1000. 
-// Данные на выходе: 	Одно целое число 
+// Прототип функции:
+// void swap_negmax_last(int size, int a[])
 
-// Пример №1
-// Данные на входе: 		2 3 1 4 7 6 9 8 10 0 
-// Данные на выходе: 	    5 
+// Данные на входе: 		Функция принимает на вход размер массива и указатель на начало массива. Массив состоит из целых чисел. 
 
-// Пример №2
-// Данные на входе: 		41 40 39 38 37 36 34 33 32 31 50 49 48 47 46 45 44 43 42 30 0 
-// Данные на выходе: 	    35 
+// Пример
+// Данные на входе: 		1 -2 -3 -4 5 6 7 8 9 10 
+// Данные на выходе: 	    1 10 -3 -4 5 6 7 8 9 -2
 
 #include <stdio.h>
 #define SIZE 10
 
-void arrInputSort(int*, int*);
-int min(int, int);
-int max(int, int);
+void arrInput1(int*, int);
 void swap(int*, int*);
+void swap_negmax_last(int, int*);
 void arrShow(int*, int);
 
 // <----------------------------------------------------------main
 
 int main(void) 
 {
-int arr[SIZE];
-int countr = 0;
+int a[SIZE];
+int countr = SIZE;
 
-    arrInputSort(arr, &countr);
-    arrShow(arr, countr);
+     arrInput1(a, countr);
+     swap_negmax_last(countr, a);
+     arrShow(a, countr);
     return 0;
 }
 
 // <----------------------------------------------------------main
 
-
-void arrInputSort(int* arr, int* counter)
+void swap_negmax_last(int countr, int a[])
 {
-int i = 0;
-    while(1)
-    {
-        scanf("%d", &arr[i]);
-        if (!arr[i])
-            break;
-    if (i > 0)
-        for (int j = i; j > 0 && arr[j - 1] < arr[j]; --j)
+int tmp = 0, flag = -1;
+    for (int i = 0; i < countr; ++i)
+        if (a[i] < 0)
         {
-            swap(&arr[j], &arr[j-1]);
+            if (!tmp)
+            {
+                tmp = a[i];
+                flag = i;
+                continue;
+            }
+
+            if (a[i] > tmp) 
+            {
+               tmp= a[i];
+                flag = i;
+            }
         }
-    if (i )
-        ++*(counter);
-        ++i;
-    }
-}
-
-int min(int a, int b)
-{
-int resault;
-    resault = a < b ? a : b;
-    return resault;
-}
-
-int max(int a, int b)
-{
-int resault;
-    resault = a > b ? a : b;
-    return resault;
+    if (flag >= 0)
+        swap(&a[flag], &a[countr -1]);
 }
 
 void swap(int* a, int* b)
@@ -78,9 +65,19 @@ int t;
     *b = t;
 }
 
-void arrShow(int* arr, int counter)
+void arrInput1(int* a, int countr)
 {
-    for (int i = 0; i < counter; ++i)
+int i = 0;
+    while(countr--)
+    {
+        scanf("%d", &a[i]);
+        ++i;
+    }
+}
+
+void arrShow(int* arr, int countr)
+{
+    for (int i = 0; i < countr; ++i)
         printf("%d ", arr[i]);
     printf("\n");
 }
