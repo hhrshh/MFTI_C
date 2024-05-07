@@ -85,8 +85,8 @@ FILE *out;
     {
         if(word1[i] == '~')
         {
-            return 0;
             fclose(out);
+            return 0;
         }
         
         for (int j = 0; word2[j] != '\0'; ++j)
