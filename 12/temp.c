@@ -16,8 +16,8 @@ void add_records_sensors(struct sensors* date, int number, uint16_t year, uint8_
 int add_info_sensors(struct sensors* data)
 {
 int counter = 0;  
-    add_records_sensors(data, counter++, 2023, 1, 16, 13, 32, 4);
-    add_records_sensors(data, counter++, 2023, 1, 2, 13, 32, -2);
+    add_records_sensors(data, counter++, 2023, 1, 16, 13, 32, -4);
+    add_records_sensors(data, counter++, 2023, 1, 2, 13, 32, 2);
     add_records_sensors(data, counter++, 2023, 1, 1, 0, 4, 2);
     add_records_sensors(data, counter++, 2023, 2, 1, 0, 3, 5);
     add_records_sensors(data, counter++, 2023, 2, 1, 0, 1, -5);
